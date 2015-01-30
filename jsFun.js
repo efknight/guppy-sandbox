@@ -20,7 +20,7 @@ function isWithInRange(x, y, range) {
 //creats the string that leads to the right png
 function creatFishStripeDotPattern(baseColor, stripeColor, dotColor) {
 	var fishString = "media/grayFishNoStripesNoDots.png";
-	fishString = "media/" + baseColor + "fish" + stripeColor + "Stripes" + dotColor + "Dots.png";
+	fishString = "media/" + baseColor + "Fish" + stripeColor + "Stripes" + dotColor + "Dots.png";
 	//console.log(fishString);
 	return fishString;
 }
