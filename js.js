@@ -14,7 +14,7 @@ $("#star2").click(function () {
 
 });
 
-
+//adding random new comment to test github
 //sets up the clock tick 
 window.onload = function () {
 	var nIntervId = setInterval(clockTick, 50);
