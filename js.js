@@ -30,7 +30,7 @@ function clockTick() {
 	tickCounter += 1;
 	checkIfFishIsSelected();
 	
-	movefish();
+	checkIfFishNeedsToMovie();
 	autoMoveFish();
 	checkIfFishHasArrived();
 }
@@ -41,10 +41,20 @@ if (Math.abs(fishX - fishHeadingToX) < marginOfError) {
 if (Math.abs(fishY - fishHeadingToY) < marginOfError) {
 	console.log("fish has arrived x: " + fishX + " fishHeadingToX: " + fishHeadingToX)
 }
+return 1;
+}
+else {
+	return 0;
 }
 }
 
+function checkIfFishNeedsToMovie(){
+//if (checkIfFishHasArrived() = 0) {
+movefish();
 
+//}
+
+}
 
 
 //check if fish selected
