@@ -1,7 +1,7 @@
 var SCREENY;
 var SCREENX;
 var tickCounter = 0;
-var fishIsMoving = 0;
+
 
 var fishSelected = 0;
 var fishHeadingToAtvie = 0;
@@ -13,7 +13,10 @@ var fishY = 0;
 var lastClickX = 0;
 var lastClickY = 0;
 
+var marginOfError = 3;
 
+// the problem is that the fish keeps heading back to its heading spot even when its done.
+// would be best to make it head there every 2 seconds
 
 // onload
 window.onload = function () {
@@ -26,9 +29,23 @@ window.onload = function () {
 function clockTick() {
 	tickCounter += 1;
 	checkIfFishIsSelected();
-	autoMoveFish();
+	
 	movefish();
+	autoMoveFish();
+	checkIfFishHasArrived();
 }
+
+
+function checkIfFishHasArrived(){
+if (Math.abs(fishX - fishHeadingToX) < marginOfError) {
+if (Math.abs(fishY - fishHeadingToY) < marginOfError) {
+	console.log("fish has arrived x: " + fishX + " fishHeadingToX: " + fishHeadingToX)
+}
+}
+}
+
+
+
 
 //check if fish selected
 function movefish() {
@@ -55,14 +72,17 @@ function movefish() {
 	}
 	
 }
-
+//working on getting automove to work properly
 function autoMoveFish() {
-if (fishFacingRight == 1) {
-	fishY += 0.1;
-	fishX += 0.3;
-	fishFacingRight = 1;
-		displayFish()
-}
+fishX += 0.5;
+displayFish();
+
+// if (fishFacingRight == 1) {
+// 	fishY += 0.1;
+// 	fishX += 0.3;
+// 	fishFacingRight = 1;
+// 		displayFish()
+// }
 }
 
 function displayFish() {
@@ -71,7 +91,7 @@ function displayFish() {
 		left: fishX,
 		top: fishY,
 	}, 1000, function () {});
-console.log(fishFacingRight);
+
 }
 
 
